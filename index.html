@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Generador de contraseña por palabras</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body{
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',sans-serif;
+      padding:2rem;
+      background:#f7f7f7;
+    }
+    .card{
+      background:#fff;
+      padding:1.5rem;
+      border-radius:8px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.06);
+      max-width:720px;
+      margin:0 auto;
+    }
+    .pw{
+      font-weight:700;
+      font-size:1.25rem;
+      word-break:break-all;
+    }
+    small{color:#666}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Contraseña generada</h1>
+    <p class="pw" id="password">{{password}}</p>
+    <p><small>Generada a partir de {{x}} palabra(s).</small></p>
+    <p><small>Para cambiar el número de palabras, añade <code>?x=3</code> (por ejemplo) en la URL.</small></p>
+    <p><small>Si quieres un diccionario personalizado, coloca un archivo <code>dictionary.txt</code> en la misma carpeta.</small></p>
+  </div>
+</body>
+</html>
