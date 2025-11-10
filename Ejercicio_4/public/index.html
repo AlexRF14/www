@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Scraper</title>
+  <style>
+    body { font-family: sans-serif; padding: 1rem; }
+    .registro { margin-bottom: 1em; }
+  </style>
+</head>
+<body>
+  <h1>Últimos registros</h1>
+  <div id="registros"></div>
+
+  <script>
+    async function cargarRegistros() {
+      try {
+        const response = await fetch('/registros.json');
+        const registros = await response.json();
+
+        const container = document.getElementById('registros');
+        container.innerHTML = registros.slice(-5).map(r => `
+          <div class="registro">
+            <b>${r.fecha}</b> — ${r.cantidad} títulos encontrados
+            <ul>
+              ${r.titulos.map(t => `<li>${t}</li>`).join('')}
+            </ul>
+          </div>
+        `).join('');
+      } catch (err) {
+        console.error('Error al cargar registros:', err);
+      }
+    }
+
+    cargarRegistros();
+  </script>
+</body>
+</html>

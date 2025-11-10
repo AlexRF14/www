@@ -1,0 +1,4 @@
+{
+  "intervalSeconds": 60,
+  "url": "http://quotes.toscrape.com/"
+}
