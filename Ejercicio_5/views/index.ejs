@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title><%= title %></title>
+  <style>
+    body { font-family: sans-serif; padding: 1rem; }
+    .grid { display:flex; flex-wrap:wrap; gap:1rem; }
+    .item { border:1px solid #ddd; padding:0.5rem; width:300px; border-radius:6px; }
+    img { max-width:100%; height:auto; display:block; border-radius:4px; }
+    .top { display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; }
+  </style>
+</head>
+<body>
+  <div class="top">
+    <h1><%= title %></h1>
+    <% if (user) { %>
+      <div>Hola, <strong><%= user %></strong> — <a href="/">Inicio</a></div>
+    <% } else { %>
+      <button onclick="location.href='/login'">Login</button>
+    <% } %>
+  </div>
+
+  <div class="grid" id="items">
+    <% items.forEach(function(item){ %>
+      <div class="item">
+        <% if (item.img) { %>
+          <img src="<%= item.img %>" alt="<%= item.title || 'Imagen' %>">
+          <p><strong><%= item.title %></strong></p>
+        <% } else { %>
+          <p><strong><%= item.title %></strong></p>
+          <p><%= item.text %></p>
+        <% } %>
+      </div>
+    <% }) %>
+  </div>
+</body>
+</html>
